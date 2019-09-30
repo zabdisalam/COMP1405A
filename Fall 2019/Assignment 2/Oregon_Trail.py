@@ -70,7 +70,6 @@ for i in range(len(professions)):
                             "You can't take that much amount it's going to result as a negative number. Please try again.")
                     market()
                 elif originalBudget == 0 and budget != 0:
-                    budget == originalBudget
                     print("\n At least buy something")
                     market()
                 elif budget == 0 and originalBudget == 0:
