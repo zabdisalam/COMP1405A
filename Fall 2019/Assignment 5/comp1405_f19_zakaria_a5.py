@@ -65,26 +65,25 @@ def run():
     def changingletters():
         txt = changingphrase()
         txtstr = "".join(txt)
-        wanttochange = input("Do you want to change any letters")
-        print(wanttochange)
-        if wanttochange != "yes" or "no":
-            print("Answer with either yes or no (lowercase)")
-            wanttochange = input("Do you want to change any letters")
         def changedletters():
+            wanttochange = input("Do you want to change any letters")
             if wanttochange == "yes":
                 changevalue = input("What letters do you want to change? \n")
-                for i in changevalue:
-                    if i in txt:
-                        changedvalue = input(f"What would you like to change '{changevalue}' letters to")
-                        for m, x in zip(changevalue, changedvalue):
-                            for j in range(0, len(txt)):
-                                if txt[j] == m:
-                                    txt[j] = x
-                    else:
-                        print(f"'{i}' cannot be replaced. It is not part of your string.")
-                        changedletters()
+                changedvalue = input(f"What would you like to change '{changevalue}' letters to")
+                for m, x in zip(changevalue, changedvalue):
+                    for j in range(0, len(txt)):
+                        if m in txt:
+                            if txt[j] == m:
+                                txt[j] = x
+                        elif m and x not in txt and j == 0:
+                            print(f"'{m}' cannot be replaced. It is not part of your string.")
+                            print("".join(txt))
+                            changedletters()
             elif wanttochange == "no":
                 print()
+            else:
+                print("Answer with either yes or no (lowercase)")
+                changedletters()
             print("".join(txt))
         changedletters()
     changewords()
