@@ -127,4 +127,7 @@ def run():
             print("Answer with either yes or no")
             newstrings()
     newstrings()
-run()
+
+
+if __name__ == '__main__':
+    run()
