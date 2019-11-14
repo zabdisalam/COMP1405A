@@ -3,7 +3,7 @@ def main():
     wordinputs = []
     exportedinput = []
     fullinputstr = ''
-    myinput = input("input ur char \n")
+    myinput = input("Type in your string \n")
     for i in myinput:
         asciimyinput = ''
         if 65 <= ord(i) <= 90:
