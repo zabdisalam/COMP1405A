@@ -18,6 +18,7 @@ def main():
         fullinputstr = "".join(fullinput)
         wordinputs = fullinputstr.split()
         exportedinput = list(fullinputstr)
+    print('\n')
     return fullinput, fullinputstr, wordinputs, myinput, exportedinput
 
 
