@@ -69,16 +69,22 @@ def run():
             wanttochange = input("Do you want to change any letters")
             if wanttochange == "yes":
                 changevalue = input("What letters do you want to change? \n")
-                changedvalue = input(f"What would you like to change '{changevalue}' letters to")
+                splittedchangevalue = list(changevalue)
+                changingvalue = []
+                finalvalue = ''
+                for i in range(0, len(splittedchangevalue)):
+                    if splittedchangevalue[i] in txt:
+                        changingvalue.append(splittedchangevalue[i])
+                    elif splittedchangevalue[i] not in txt:
+                        print(f"'{splittedchangevalue[i]}' cannot be replaced. It is not part of your string.")
+                        print("".join(txt))
+                        changedletters()
+                finalvalue = "".join(changingvalue)
+                changedvalue = input(f"What would you like to change '{finalvalue}' letters to")
                 for m, x in zip(changevalue, changedvalue):
                     for j in range(0, len(txt)):
-                        if m in txt:
-                            if txt[j] == m:
-                                txt[j] = x
-                        elif m and x not in txt and j == 0:
-                            print(f"'{m}' cannot be replaced. It is not part of your string.")
-                            print("".join(txt))
-                            changedletters()
+                        if txt[j] == m:
+                            txt[j] = x
             elif wanttochange == "no":
                 print()
             else:
