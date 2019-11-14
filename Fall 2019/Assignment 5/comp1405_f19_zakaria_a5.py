@@ -22,7 +22,7 @@ def run():
     fullinput, fullinputstr, wordinputs = main()
     def changewords():
         finalvalue = []
-        changeivalues = input("Would you like to change the words?\n")
+        changeivalues = input("Would you like to change the words?\n").lower()
         if changeivalues == 'yes':
             changedivalues = input(f"What word would you like to change: {fullinputstr}\n")
             splittedchangedivalues = list(changedivalues)
@@ -49,7 +49,7 @@ def run():
         txtstr1 = " ".join(wordinputs)
         txt = list(txtstr1)
         txtstr = "".join(txt)
-        changeval = input("Would you like to change a phrase? \n")
+        changeval = input("Would you like to change a phrase? \n").lower()
         if changeval == "yes":
             changedphrase = input(f"What phrase would you like to change: {txtstr}\n")
             splittedchangedphrase = list(changedphrase)
@@ -81,7 +81,7 @@ def run():
         return txt
     def changingletters():
         txt = changingphrase()
-        wanttochange = input("Do you want to change any letters \n")
+        wanttochange = input("Do you want to change any letters \n").lower()
         def changedletters():
             if wanttochange == "yes":
                 changevalue = input(f"What letters do you want to change? {''.join(txt)}\n")
