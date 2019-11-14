@@ -91,7 +91,7 @@ def run():
             else:
                 print("Answer with either yes or no (lowercase)")
                 changedletters()
-            print("".join(txt))
+            print(f' Your replaced string: {"".join(txt)}')
         changedletters()
     changewords()
     changingletters()
