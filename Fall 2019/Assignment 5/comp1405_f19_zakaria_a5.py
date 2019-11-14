@@ -23,19 +23,28 @@ def main():
 def run():
     fullinput, fullinputstr, wordinputs, myinput, exportedinput = main()
     def changewords():
-
+        finalvalue = []
         changeivalues = input("Would you like to change the words?\n")
         if changeivalues == 'yes':
-            changedivalues = input(f"What word would you like to change?"
-                                   f" (write down the word you want to change): {fullinputstr}\n")
-            changeinput = input(f"What would you want to change {changedivalues} to \n")
-            changedivalues = wordinputs.index(changedivalues)
-            wordinputs[changedivalues] = changeinput
-            print(" ".join(wordinputs))
+            changedivalues = input(f"What word would you like to change: {fullinputstr}\n")
+            splittedchangedivalues = list(changedivalues)
+            for i in range(0, len(splittedchangedivalues)):
+                if splittedchangedivalues[i] not in list(fullinputstr):
+                    print(f"'{splittedchangedivalues[i]}' cannot be replaced. It is not part of your string."
+                          f" (Uppercase your characters)")
+                else:
+                    finalvalue.append(splittedchangedivalues[i])
+            if "".join(finalvalue) != changedivalues:
+                changewords()
+            else:
+                changeinput = input(f"What would you want to change {changedivalues} to \n")
+                changedivalues = wordinputs.index(changedivalues)
+                wordinputs[changedivalues] = changeinput
+                print(" ".join(wordinputs))
         elif changeivalues == 'no':
             print()
         else:
-            print("Answer with either yes or no")
+            print("Answer with either 'yes' or 'no'")
             changewords()
 
     def changingphrase():
@@ -45,27 +54,38 @@ def run():
         changeval = input("Would you like to change a phrase? \n")
         if changeval == "yes":
             changedphrase = input(f"What phrase would you like to change: {txtstr}\n")
-            inputindex = txtstr.index(changedphrase)
-            inputlength = len(changedphrase)
-            myoutput = input(f"What would you like to change {changedphrase} to?\n")
-            inputrange = (inputindex + inputlength)
-            outputrange = (inputindex + len(myoutput))
-            for i in range(inputindex, inputrange):
-                txt[i] = ''
-            for i, x in zip(range(inputindex, outputrange), myoutput):
-                txt.insert(i, x)
-            print("".join(txt))
+            splittedchangedphrase = list(changedphrase)
+            changingval = []
+            for i in range(0, len(splittedchangedphrase)):
+                if splittedchangedphrase[i] not in txt:
+                    print(f"'{splittedchangedphrase[i]}' cannot be replaced. It is not part of your string."
+                          f" (Uppercase your characters)")
+                else:
+                    changingval.append(splittedchangedphrase[i])
+            if "".join(changingval) != changedphrase:
+                changingphrase()
+            else:
+                inputindex = txtstr.index(changedphrase)
+                inputlength = len(changedphrase)
+                myoutput = input(f"What would you like to change {changedphrase} to?\n")
+                inputrange = (inputindex + inputlength)
+                outputrange = (inputindex + len(myoutput))
+                for i in range(inputindex, inputrange):
+                    txt[i] = ''
+                for i, x in zip(range(inputindex, outputrange), myoutput):
+                    txt.insert(i, x)
+                print("".join(txt))
         elif changeval == 'no':
             print()
         else:
-            print("Answer with either yes or no")
+            print("Answer with either 'yes' or 'no'")
             changingphrase()
         return txt
     def changingletters():
         txt = changingphrase()
         txtstr = "".join(txt)
+        wanttochange = input("Do you want to change any letters \n")
         def changedletters():
-            wanttochange = input("Do you want to change any letters \n")
             if wanttochange == "yes":
                 changevalue = input("What letters do you want to change? \n")
                 splittedchangevalue = list(changevalue)
@@ -78,7 +98,8 @@ def run():
                         currentvalue = input(f"What would you like to change '{splittedchangevalue[i]}' with? \n")
                         changedvalue.append(currentvalue)
                     elif splittedchangevalue[i] not in txt:
-                        print(f"'{splittedchangevalue[i]}' cannot be replaced. It is not part of your string.")
+                        print(f"'{splittedchangevalue[i]}' cannot be replaced. It is not part of your string."
+                              f" (Uppercase your characters)")
                 finalvalue = "".join(changingvalue)
                 if finalvalue != changevalue:
                     changedletters()
@@ -91,7 +112,7 @@ def run():
             elif wanttochange == "no":
                 print()
             else:
-                print("Answer with either yes or no (lowercase)")
+                print("Answer with either 'yes' or 'no'")
                 changedletters()
         changedletters()
     changewords()
