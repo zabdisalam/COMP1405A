@@ -26,11 +26,11 @@ def run():
     fullinput, fullinputstr, wordinputs, myinput, exportedinput = main()
     def changewords():
 
-        changeivalues = input("Would you like to change the words?")
+        changeivalues = input("Would you like to change the words?\n")
         if changeivalues == 'yes':
             changedivalues = input(f"What word would you like to change?"
                                    f" (write down the word you want to change): {fullinputstr}\n")
-            changeinput = input(f"What would you want to change {changedivalues} to: ")
+            changeinput = input(f"What would you want to change {changedivalues} to \n")
             changedivalues = wordinputs.index(changedivalues)
             wordinputs[changedivalues] = changeinput
             print(" ".join(wordinputs))
@@ -44,7 +44,7 @@ def run():
         txtstr1 = " ".join(wordinputs)
         txt = list(txtstr1)
         txtstr = "".join(txt)
-        changeval = input("Would you like to change a phrase?")
+        changeval = input("Would you like to change a phrase? \n")
         if changeval == "yes":
             changedphrase = input(f"What phrase would you like to change: {txtstr}\n")
             inputindex = txtstr.index(changedphrase)
@@ -67,7 +67,7 @@ def run():
         txt = changingphrase()
         txtstr = "".join(txt)
         def changedletters():
-            wanttochange = input("Do you want to change any letters")
+            wanttochange = input("Do you want to change any letters \n")
             if wanttochange == "yes":
                 changevalue = input("What letters do you want to change? \n")
                 splittedchangevalue = list(changevalue)
@@ -77,11 +77,11 @@ def run():
                     if splittedchangevalue[i] in txt:
                         changingvalue.append(splittedchangevalue[i])
                     elif splittedchangevalue[i] not in txt:
-                        print(f"'{splittedchangevalue[i]}' cannot be replaced. It is not part of your string.")
+                        print(f"'{splittedchangevalue[i]}' cannot be replaced. It is not part of your string.\n")
                         print("".join(txt))
                         changedletters()
                 finalvalue = "".join(changingvalue)
-                changedvalue = input(f"What would you like to change '{finalvalue}' letters to")
+                changedvalue = input(f"What would you like to change '{finalvalue}' letters to\n")
                 for m, x in zip(changevalue, changedvalue):
                     for j in range(0, len(txt)):
                         if txt[j] == m:
@@ -95,6 +95,14 @@ def run():
         changedletters()
     changewords()
     changingletters()
-
-
+    def newstrings():
+        newstring = input("Do you want to translate a new string \n")
+        if newstring == "yes":
+            run()
+        elif newstring == "no":
+            print()
+        else:
+            print("Answer with either yes or no")
+            newstrings()
+    newstrings()
 run()
