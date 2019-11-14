@@ -70,26 +70,29 @@ def run():
                 changevalue = input("What letters do you want to change? \n")
                 splittedchangevalue = list(changevalue)
                 changingvalue = []
+                changedvalue = []
                 finalvalue = ''
                 for i in range(0, len(splittedchangevalue)):
                     if splittedchangevalue[i] in txt:
                         changingvalue.append(splittedchangevalue[i])
+                        currentvalue = input(f"What would you like to change '{splittedchangevalue[i]}' with? \n")
+                        changedvalue.append(currentvalue)
                     elif splittedchangevalue[i] not in txt:
-                        print(f"'{splittedchangevalue[i]}' cannot be replaced. It is not part of your string.\n")
-                        print("".join(txt))
-                        changedletters()
+                        print(f"'{splittedchangevalue[i]}' cannot be replaced. It is not part of your string.")
                 finalvalue = "".join(changingvalue)
-                changedvalue = input(f"What would you like to change '{finalvalue}' letters to\n")
-                for m, x in zip(changevalue, changedvalue):
-                    for j in range(0, len(txt)):
-                        if txt[j] == m:
-                            txt[j] = x
+                if finalvalue != changevalue:
+                    changedletters()
+                else:
+                    for m, x in zip(finalvalue, changedvalue):
+                        for j in range(0, len(txt)):
+                            if txt[j] == m:
+                                txt[j] = x
+                    print(f'Your replaced string: {"".join(txt)}')
             elif wanttochange == "no":
                 print()
             else:
                 print("Answer with either yes or no (lowercase)")
                 changedletters()
-            print(f' Your replaced string: {"".join(txt)}')
         changedletters()
     changewords()
     changingletters()
@@ -98,7 +101,7 @@ def run():
         if newstring == "yes":
             run()
         elif newstring == "no":
-            print()
+            print("Goodbye.")
         else:
             print("Answer with either yes or no")
             newstrings()
