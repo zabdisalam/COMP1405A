@@ -6,9 +6,7 @@ def main():
     myinput = input("Type in your string \n")
     for i in myinput:
         asciimyinput = ''
-        if 65 <= ord(i) <= 90:
-            asciimyinput = ord(i)
-        elif 97 <= ord(i) <= 122:
+        if 97 <= ord(i) <= 122:
             asciimyinput = ord(i) - 32
         else:
             asciimyinput = ord(i)
