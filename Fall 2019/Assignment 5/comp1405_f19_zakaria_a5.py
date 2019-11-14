@@ -15,11 +15,11 @@ def main():
         fullinputstr = "".join(fullinput)
         wordinputs = fullinputstr.split()
     print('\n')
-    return fullinput, fullinputstr, wordinputs, myinput
+    return fullinput, fullinputstr, wordinputs
 
 
 def run():
-    fullinput, fullinputstr, wordinputs, myinput = main()
+    fullinput, fullinputstr, wordinputs = main()
     def changewords():
         finalvalue = []
         changeivalues = input("Would you like to change the words?\n")
