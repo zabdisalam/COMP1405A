@@ -1,7 +1,6 @@
 def main():
     fullinput = []
     wordinputs = []
-    exportedinput = []
     fullinputstr = ''
     myinput = input("Type in your string \n")
     for i in myinput:
@@ -15,13 +14,12 @@ def main():
         print(f"{finalinput}", end='')
         fullinputstr = "".join(fullinput)
         wordinputs = fullinputstr.split()
-        exportedinput = list(fullinputstr)
     print('\n')
-    return fullinput, fullinputstr, wordinputs, myinput, exportedinput
+    return fullinput, fullinputstr, wordinputs, myinput
 
 
 def run():
-    fullinput, fullinputstr, wordinputs, myinput, exportedinput = main()
+    fullinput, fullinputstr, wordinputs, myinput = main()
     def changewords():
         finalvalue = []
         changeivalues = input("Would you like to change the words?\n")
@@ -83,11 +81,10 @@ def run():
         return txt
     def changingletters():
         txt = changingphrase()
-        txtstr = "".join(txt)
         wanttochange = input("Do you want to change any letters \n")
         def changedletters():
             if wanttochange == "yes":
-                changevalue = input("What letters do you want to change? \n")
+                changevalue = input(f"What letters do you want to change? {''.join(txt)}\n")
                 splittedchangevalue = list(changevalue)
                 changingvalue = []
                 changedvalue = []
