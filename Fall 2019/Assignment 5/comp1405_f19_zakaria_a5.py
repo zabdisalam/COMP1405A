@@ -80,8 +80,8 @@ def run():
         return txt
     def changingletters():
         txt = changingphrase()
-        wanttochange = input("Do you want to replace any letters: \n").lower()
         def changedletters():
+            wanttochange = input("Do you want to replace any letters: \n").lower()
             if wanttochange == "yes":
                 changevalue = input(f"What letters do you want to replace?: {''.join(txt)}\n")
                 splittedchangevalue = list(changevalue)
