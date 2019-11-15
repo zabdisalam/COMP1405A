@@ -52,15 +52,16 @@ def run():
         changeval = input("Would you like to change a phrase? \n").lower()
         if changeval == "yes":
             changedphrase = input(f"What phrase would you like to change: {txtstr}\n")
-            splittedchangedphrase = list(changedphrase)
+            # listedchangedphrase = list(changedphrase)
+            splittedchangedphrase = changedphrase.split()
             changingval = []
             for i in range(0, len(splittedchangedphrase)):
-                if splittedchangedphrase[i] not in txt:
+                if splittedchangedphrase[i] not in wordinputs:
                     print(f"'{splittedchangedphrase[i]}' cannot be replaced. It is not part of your string."
                           f" (Uppercase your characters)")
                 else:
                     changingval.append(splittedchangedphrase[i])
-            if "".join(changingval) != changedphrase:
+            if " ".join(changingval) != changedphrase:
                 changingphrase()
             else:
                 inputindex = txtstr.index(changedphrase)
