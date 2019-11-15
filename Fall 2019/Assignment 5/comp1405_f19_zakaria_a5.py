@@ -52,7 +52,6 @@ def run():
         changeval = input("Would you like to change a phrase? \n").lower()
         if changeval == "yes":
             changedphrase = input(f"What phrase would you like to change: {txtstr}\n")
-            # listedchangedphrase = list(changedphrase)
             splittedchangedphrase = changedphrase.split()
             changingval = []
             for i in range(0, len(splittedchangedphrase)):
