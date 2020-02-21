@@ -53,7 +53,7 @@ def main():
                 finalvalue = []
                 # variable which prompts the user if they want to change any words,
                 # and it stores the lowercased value of their input
-                changeivalues = input("Would you like to replace any of the words?:\n").lower()
+                changeivalues = input("Would you like to replace any of the words?:\n")
                 # if the user wants to change any words i.e. if the value of changeivalues is 'yes' then....
                 if changeivalues == 'yes':
                     # a new variable which asks the user for what words in their string they want to change.
@@ -112,7 +112,7 @@ def main():
                 # joins txt into a string
                 txtstr = "".join(txt)
                 # a new variable which prompts then stores user input, if they want to replace a phrase or not
-                changeval = input("Would you like to replace a phrase?: \n").lower()
+                changeval = input("Would you like to replace a phrase?: \n")
                 # if the user wants to change a phrase
                 if changeval == "yes":
                     # a new variable which prompts then stores the phrase that the user wants to replace
@@ -182,7 +182,7 @@ def main():
                 # Hence when this function is called then changingphrase() wont run again
                 def changedletters():
                     # a new variable which prompts then stores if the user wants to change letters or not.
-                    wanttochange = input("Do you want to replace any letters: \n").lower()
+                    wanttochange = input("Do you want to replace any letters: \n")
                     # if the user wants to change letters
                     if wanttochange == "yes":
                         # a new variable which prompts then stores the letters
